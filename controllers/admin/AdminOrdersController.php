@@ -2108,7 +2108,7 @@ class AdminOrdersControllerCore extends AdminController
         }
 
         // Update product available quantity
-        StockAvailable::updateQuantity($order_detail->product_id, $order_detail->product_attribute_id, ($order_detail->product_quantity * -1), $order->id_shop);
+        StockAvailable::updateQuantity($order_detail->product_id, $order_detail->product_attribute_id, ($order_detail->product_quantity -1), $order->id_shop);
 
         // discount
         $order->total_discounts += (float)abs($cart->getOrderTotal(true, Cart::ONLY_DISCOUNTS));
